@@ -1,4 +1,5 @@
 import React from "react";
+import {Link} from "react-router-dom";
 
 import "./Header.css";
 
@@ -8,8 +9,8 @@ const Header = () => {
                 <div className="navbar-fixed">
                     <nav>
                         <div className="nav-wrapper">
-                            <a href="./Login.js">Login</a>
-                            <a href="./Candidates.js">Candidates</a>
+                            <Link to="/login">Login</Link>
+                            <Link to="/">Candidates</Link>
                         </div>
                     </nav>
                 </div> 
@@ -18,3 +19,4 @@ const Header = () => {
 };
 
 export default Header;
+
