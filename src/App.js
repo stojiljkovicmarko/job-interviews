@@ -1,23 +1,45 @@
-import logo from './logo.svg';
+
+import { Route, Switch, useHistory } from "react-router-dom";
+
+import SessionStorageService from "./services/SessionStorageService";
+
+import Home from "./pages/Home";
+import Login from './pages/Login';
+
 import './App.css';
 
+function setToken(token) {
+  if (token !== undefined) {
+    localStorage.setItem("token", JSON.stringify(token));
+  }
+
+}
+
+
 function App() {
+
+  const token = SessionStorageService.getToken();
+
+    let history = useHistory();
+    
+    if(!token) {
+        history.push("/login");
+    }
+ 
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Switch>
+        <Route exact path="/login">
+          <Login setToken={setToken}/>
+        </Route>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/home">
+          <Home />
+        </Route>
+      </Switch>
     </div>
   );
 }
