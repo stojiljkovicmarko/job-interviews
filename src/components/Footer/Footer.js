@@ -1,14 +1,12 @@
 import React from "react";
-import style from "-/Footer.css";
+import "./Footer.css";
 
-const Footer = React.createClass({
-    render: function() {
+const Footer = () => {
         return (
-            <div style={style}>
-                {this.props.children}
+            <div className="footer">
+                <p>React final project</p>
             </div>
         );
-    }
-});
+};
 
 export default Footer
