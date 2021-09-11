@@ -1,5 +1,7 @@
 
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
+
+import SessionStorageService from "./services/SessionStorageService";
 
 import Home from "./pages/Home";
 import Login from './pages/Login';
@@ -7,31 +9,30 @@ import Login from './pages/Login';
 import './App.css';
 
 function setToken(token) {
-  if(token !== undefined) {
+  if (token !== undefined) {
     localStorage.setItem("token", JSON.stringify(token));
   }
-  
-}
 
-function getToken() {
-  const token = localStorage.getItem("token");
-  return JSON.parse(token);
 }
 
 
 function App() {
 
-  const token = getToken();
+  const token = SessionStorageService.getToken();
 
-  if (!token) {
-    return (
-      <Login setToken={setToken} />
-    )
-  }
+    let history = useHistory();
+    
+    if(!token) {
+        history.push("/login");
+    }
+ 
 
   return (
     <div>
       <Switch>
+        <Route exact path="/login">
+          <Login setToken={setToken}/>
+        </Route>
         <Route exact path="/">
           <Home />
         </Route>
