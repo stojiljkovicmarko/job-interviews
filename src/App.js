@@ -15,7 +15,6 @@ function setToken(token) {
 
 }
 
-
 function App() {
 
   const token = SessionStorageService.getToken();
