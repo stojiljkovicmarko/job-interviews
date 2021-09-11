@@ -24,6 +24,8 @@ function App() {
     
     if(!token) {
         history.push("/login");
+    } else {
+      history.push('/')
     }
  
 
