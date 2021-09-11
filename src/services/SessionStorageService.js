@@ -7,4 +7,9 @@ export default class SessionStorageService {
         const item = sessionStorage.getItem(key);
         return JSON.parse(key);
     }
+
+    static getToken() {
+        const token = localStorage.getItem("token");
+        return JSON.parse(token);
+      }
 }

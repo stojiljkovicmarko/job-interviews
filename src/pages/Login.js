@@ -2,6 +2,10 @@ import React, { useState } from "react";
 
 
 
+import { useHistory } from "react-router-dom";
+
+
+
 async function loginUser(credentials) {
 
     const url = "http://localhost:3333/login";
@@ -35,6 +39,8 @@ function Login({ setToken }) {
         setPassword(event.target.value);
     }
 
+    let history = useHistory();
+
     const submitHandler = async (event) => {
         event.preventDefault();
 
@@ -47,6 +53,8 @@ function Login({ setToken }) {
 
         const token = await loginUser(user);
         setToken(token.accessToken);
+        history.push("/home");
+
 
     }
 
