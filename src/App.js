@@ -5,6 +5,7 @@ import SessionStorageService from "./services/SessionStorageService";
 
 import Home from "./pages/Home";
 import Login from './pages/Login';
+import Report from "./pages/Report";
 
 import './App.css';
 
@@ -24,9 +25,10 @@ function App() {
     
     if(!token) {
         history.push("/login");
-    } else {
-      history.push('/')
-    }
+    } 
+    // else {
+    //   history.push('/')
+    // }
  
 
   return (
@@ -40,6 +42,9 @@ function App() {
         </Route>
         <Route exact path="/home">
           <Home />
+        </Route>
+        <Route exact path="/dummy-report">
+          <Report />
         </Route>
       </Switch>
     </div>
