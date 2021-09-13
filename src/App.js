@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import Login from './pages/Login';
 
 import './App.css';
+import ReportOverviewModal from "./components/Report/ReportOverviewModal";
 
 function setToken(token) {
   if (token !== undefined) {
@@ -24,9 +25,10 @@ function App() {
     
     if(!token) {
         history.push("/login");
-    } else {
-      history.push('/')
-    }
+    } 
+    // else {
+    //   history.push('/')
+    // }
  
 
   return (
@@ -40,6 +42,9 @@ function App() {
         </Route>
         <Route exact path="/home">
           <Home />
+        </Route>
+        <Route exact path="/modal">
+          <ReportOverviewModal />
         </Route>
       </Switch>
     </div>
