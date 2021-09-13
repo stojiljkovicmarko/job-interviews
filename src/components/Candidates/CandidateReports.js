@@ -292,7 +292,7 @@ export default function CandidateReports() {
                             <td>{formatDate(user.interviewDate)}</td>
                             <td className="col-10">{user.status}</td>
                             <td className="col-2 text-center">
-                                <button className="btn" onClick={viewReport}>
+                                <button className="btn" >
                                     <i className="fas fa-info-circle"></i>
                                 </button>
                             </td>
