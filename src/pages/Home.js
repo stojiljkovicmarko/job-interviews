@@ -1,5 +1,7 @@
 import { useEffect, useState } from "react";
 
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import CandidateService from "../services/CandidateService";
 
 function Home() {
@@ -19,7 +21,9 @@ function Home() {
     
     return(
         <div className="bg-primary">
-            HOME PAGE
+            <Header />
+                
+            <Footer />
             
         </div>
     );
