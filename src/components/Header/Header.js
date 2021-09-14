@@ -9,7 +9,7 @@ const Header = () => {
                 <div className="navbar-fixed">
                     <nav>
                         <div className="nav-wrapper">
-                            <Link to="/login">Login</Link>
+                            <h1>Interviews Reports </h1>
                             <Link to="/">Candidates</Link>
                         </div>
                     </nav>
