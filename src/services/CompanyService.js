@@ -1,9 +1,9 @@
-import Companies from "../entities/Companies";
+import Company from "../entities/Company";
 import SessionStorageService from "./SessionStorageService";
 
 export default class CompanyService {
 
-    static fetchAllCompaniesIds() {
+    static fetchAllCompanyIds() {
 
         const token = "Bearer " + SessionStorageService.getToken();
 
@@ -23,7 +23,7 @@ export default class CompanyService {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                let newArr = data.map(c => new Companies(c.id, c.name, c.email));
+                let newArr = data.map(c => new Company(c.id, c.name, c.email));
                 console.log("novi ar", newArr);
                 return newArr;
             });

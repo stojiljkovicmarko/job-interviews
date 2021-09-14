@@ -6,23 +6,24 @@ import CompanyService from "../services/CompanyService";
 function Home() {
 
     const [ candidates, setCandidates ] = useState([]);
-    const [ companies, setCompanies ] = useState([]);
+    const [ company, setCompany ] = useState([]);
 
 
     const loadCandidates = () => {
         CandidateService.fetchAllCandidates().then(candidates => setCandidates(candidates));
     }
 
-    const loadCompanies = () => {
-        CompanyService.fetchAllCompaniesIds().then (companies => setCompanies(companies));
+    const loadCompany = () => {
+        CompanyService.fetchAllCompanyIds().then (company => setCompany(company));
     }
 
     useEffect(() => {
         loadCandidates();
-        loadCompanies();
+        loadCompany();
     }, []);
 
-    console.log("form home: ", candidates);
+    console.log("form home: ", candidates); // Neoitreban deo
+    console.log ('form-home:', company ); //Nepotreban deo
     
     return(
         <div className="bg-primary">
