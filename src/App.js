@@ -7,7 +7,9 @@ import Home from "./pages/Home";
 import Login from './pages/Login';
 import Report from "./pages/Report";
 
+
 import './App.css';
+import ReportOverviewModal from "./components/Report/ReportOverviewModal";
 
 function setToken(token) {
   if (token !== undefined) {
@@ -21,21 +23,21 @@ function App() {
 
   const token = SessionStorageService.getToken();
 
-    let history = useHistory();
-    
-    if(!token) {
-        history.push("/login");
-    } 
-    // else {
-    //   history.push('/')
-    // }
- 
+  let history = useHistory();
+
+  if (!token) {
+    history.push("/login");
+  }
+  // else {
+  //   history.push('/')
+  // }
+
 
   return (
     <div>
       <Switch>
         <Route exact path="/login">
-          <Login setToken={setToken}/>
+          <Login setToken={setToken} />
         </Route>
         <Route exact path="/">
           <Home />
@@ -45,6 +47,9 @@ function App() {
         </Route>
         <Route exact path="/dummy-report">
           <Report />
+        </Route>
+        <Route exact path="/modal">
+          <ReportOverviewModal />
         </Route>
       </Switch>
     </div>
