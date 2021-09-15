@@ -3,11 +3,9 @@ import SessionStorageService from "./SessionStorageService";
 
 export default class CompanyService {
 
-    static fetchAllCompanyIds() {
+    static fetchAllCompanies() {
 
         const token = "Bearer " + SessionStorageService.getToken();
-
-        console.log(token);
 
         const url = "http://localhost:3333/api/companies";
 
@@ -22,10 +20,7 @@ export default class CompanyService {
         return fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
-                let newArr = data.map(c => new Company(c.id, c.name, c.email));
-                console.log("novi ar", newArr);
-                return newArr;
+                return data.map(c => new Company(c.id, c.name, c.email));
             });
 
     }

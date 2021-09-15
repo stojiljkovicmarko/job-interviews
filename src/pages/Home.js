@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 
 import Header from "../components/Header/Header";
+import CandidatePage from "../components/CandidatePage/CandidatePage";
 import Footer from "../components/Footer/Footer";
 import CandidateService from "../services/CandidateService";
 import CompanyService from "../services/CompanyService";
@@ -8,29 +9,28 @@ import CompanyService from "../services/CompanyService";
 function Home() {
 
     const [ candidates, setCandidates ] = useState([]);
-    const [ company, setCompany ] = useState([]);
+    const [ companies, setCompanies ] = useState([]);
 
 
     const loadCandidates = () => {
         CandidateService.fetchAllCandidates().then(candidates => setCandidates(candidates));
     }
 
-    const loadCompany = () => {
-        CompanyService.fetchAllCompanyIds().then (company => setCompany(company));
+    const loadCompanies = () => {
+        CompanyService.fetchAllCompanies().then(companies => setCompanies(companies));
     }
 
     useEffect(() => {
         loadCandidates();
-        loadCompany();
+        loadCompanies();
     }, []);
 
-    console.log("form home: ", candidates); // Neoitreban deo
-    console.log ('form-home:', company ); //Nepotreban deo
+    console.log("from home: ", candidates);
     
     return(
-        <div className="bg-primary">
-            <Header />
-                
+        <div>
+            <Header className="bg-primary" />
+                <CandidatePage candidates={candidates} />
             <Footer />
             
         </div>
