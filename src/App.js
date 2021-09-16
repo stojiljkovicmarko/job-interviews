@@ -45,7 +45,7 @@ function App() {
         <Route exact path="/home">
           <Home />
         </Route>
-        <Route exact path="/dummy-report">
+        <Route exact path="/candidate-report/:id">
           <Report />
         </Route>
         <Route exact path="/modal">

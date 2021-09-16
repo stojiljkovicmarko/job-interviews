@@ -2,7 +2,7 @@ import React from "react";
 
 import { formatDate } from "../../utils/helperFunctions";
 
-export default function CandidateReports() {
+export default function CandidateReports({ id }) {
 
     const array = [
         {
@@ -287,16 +287,19 @@ export default function CandidateReports() {
                 </thead>
                 <tbody>
                     {array.map((user, index) => {
-                        return (<tr key={index}>
-                            <td>{user.companyName}</td>
-                            <td>{formatDate(user.interviewDate)}</td>
-                            <td className="col-10">{user.status}</td>
-                            <td className="col-2 text-center">
-                                <button className="btn" >
-                                    <i className="fas fa-info-circle"></i>
-                                </button>
-                            </td>
-                        </tr>);
+                        if(user.candidateId === parseInt(id)) {
+                            return (<tr key={index}>
+                                <td>{user.companyName}</td>
+                                <td>{formatDate(user.interviewDate)}</td>
+                                <td className="col-10">{user.status}</td>
+                                <td className="col-2 text-center">
+                                    <button className="btn">
+                                        <i className="fas fa-info-circle"></i>
+                                    </button>
+                                </td>
+                            </tr>);
+                        }
+                            
                     })}
                 </tbody>
             </table>

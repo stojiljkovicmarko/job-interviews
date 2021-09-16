@@ -26,6 +26,8 @@ function Home() {
     }, []);
 
     console.log("from home: ", candidates);
+    console.log("from home: ", companies);
+
     
     return(
         <div>

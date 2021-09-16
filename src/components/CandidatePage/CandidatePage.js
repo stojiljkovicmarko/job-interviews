@@ -15,7 +15,6 @@ function CandidatePage({ candidates }) {
                 if (candidate.name) {
                     return <CandidateCard className="card user-card" candidate={candidate} key={candidate.id} />
                 }
-                
             })}
         </div>
         </div>
