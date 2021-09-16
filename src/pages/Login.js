@@ -51,10 +51,10 @@ function Login({ setToken }) {
 
   return (
     <div>
-      <div class="form-wrapper">
-        <h3 class="text-center">Please sign in</h3>
+      <div className="form-wrapper">
+        <h3 className="text-center">Please sign in</h3>
         <form>
-          <div class="mb-3">
+          <div className="mb-3">
             <input
               type="email"
               value={email}
@@ -65,9 +65,9 @@ function Login({ setToken }) {
             />
           </div>
 
-          <div class="mb-3">
+          <div className="mb-3">
             <input
-              type="text"
+              type="password"
               value={password}
               onChange={passwordHandler}
               placeholder="password"
@@ -78,7 +78,7 @@ function Login({ setToken }) {
           <button
             onClick={submitHandler}
             type="submit"
-            class="btn btn-lg w-100"
+            className="btn btn-lg w-100"
           >
             {" "}
             SIGN IN{" "}
