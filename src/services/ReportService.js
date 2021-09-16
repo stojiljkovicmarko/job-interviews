@@ -1,15 +1,15 @@
-import Candidate from "../entities/Candidate";
+import Report from "../entities/Report";
 import SessionStorageService from "./SessionStorageService";
 
-export default class CandidateService {
+export default class ReportService {
 
-    static fetchAllCandidates() {
+    static fetchAllReportIds() {
 
         const token = "Bearer " + SessionStorageService.getToken();
 
-        //console.log(token);
+        console.log(token);
 
-        const url = "http://localhost:3333/api/candidates";
+        const url = "http://localhost:3333/api/reports";
 
         const requestOptions = {
             method: "GET",
@@ -23,7 +23,7 @@ export default class CandidateService {
             .then(response => response.json())
             .then(data => {
                 console.log(data);
-                let newArr = data.map(c => new Candidate(c.id, c.name, c.birthday, c.avatar, c.email, c.education));
+                let newArr = data.map(c => new Report(c.id, c.candidateId, c.candidateName, c.companyId, c.companyName, c.interviewDate, c.phase, c.status, c.note));
                 console.log("novi ar", newArr);
                 return newArr;
             });
