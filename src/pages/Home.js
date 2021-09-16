@@ -33,7 +33,6 @@ function Home() {
     }, []);
 
     console.log("form home: ", candidates); // Neoitreban deo
-    console.log ('form-home:', company ); //Nepotreban deo
     console.log ('form-home:', report ); //Nepotreban deo
     
     return(
