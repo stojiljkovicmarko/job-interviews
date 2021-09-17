@@ -1,11 +1,44 @@
 import React from "react";
 
+import Modal from "react-modal";
+
 import "./ReportOverviewModal.css";
 
-export default function ReportOverviewModal(props) {
+export default function ReportOverviewModal({ candidateReport, isModalOpen, setIsModalOpen }) {
 
     return (
-        <div className=" " id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <Modal style={{
+            overlay: {
+                //for backdrop
+            },
+            content: {
+                position: 'absolute',
+                top: '100px',
+                left: '100px',
+                right: '100px',
+                bottom: '100px',
+                border: '1px solid gray',
+                background: 'whitesmoke',
+                overflow: 'auto',
+                WebkitOverflowScrolling: 'touch',
+                borderRadius: '4px',
+                outline: 'none',
+                padding: '20px'
+            }
+        }}
+            onRequestClose={() => setIsModalOpen(false)}
+            isOpen={isModalOpen} ariaHideApp={false}>
+            <button onClick={() => setIsModalOpen(false)}> X </button>
+            <h2>{candidateReport.candidateName}</h2>
+            <p>{candidateReport.companyName}</p>
+            <p>{candidateReport.interviewDate}</p>
+            <p>{candidateReport.note}</p>
+        </Modal>
+    );
+}
+
+
+{/* <div className=" " id="exampleModalCenter" tabIndex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div className="modal-dialog modal-dialog-centered" role="document">
                 <div className="modal-content">
                     <div className="modal-header">
@@ -46,6 +79,4 @@ export default function ReportOverviewModal(props) {
                     </div>
                 </div>
             </div>
-        </div>
-    );
-}
+        </div> */}

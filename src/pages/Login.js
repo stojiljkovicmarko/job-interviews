@@ -61,7 +61,7 @@ function Login({ setToken }) {
               onChange={emailHandler}
               placeholder="email"
               id="email"
-              class="form-control"
+              className="form-control"
             />
           </div>
 
@@ -72,7 +72,7 @@ function Login({ setToken }) {
               onChange={passwordHandler}
               placeholder="password"
               id="password"
-              class="form-control"
+              className="form-control"
             />
           </div>
           <button
