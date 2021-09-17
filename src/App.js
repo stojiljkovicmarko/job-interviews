@@ -1,8 +1,11 @@
 
-import { Route, Switch, useHistory } from "react-router-dom";
+import { Route, Redirect, Switch, useHistory } from "react-router-dom";
 
 import SessionStorageService from "./services/SessionStorageService";
 
+
+import Header from "./components/Header/Header";
+import Footer from "./components/Footer/Footer";
 import Home from "./pages/Home";
 import Login from './pages/Login';
 import Report from "./pages/Report";
@@ -26,32 +29,24 @@ function App() {
   let history = useHistory();
 
   if (!token) {
-    history.push("/login");
+    return <Login setToken={setToken} />
+    //history.push("/login");
   }
-  // else {
-  //   history.push('/')
-  // }
+  else {
+    history.push('/home')
+  }
 
 
   return (
     <div>
+      <Header />
       <Switch>
-        <Route exact path="/login">
-          <Login setToken={setToken} />
-        </Route>
-        <Route exact path="/">
-          <Home />
-        </Route>
-        <Route exact path="/home">
-          <Home />
-        </Route>
-        <Route exact path="/candidate-report/:id">
-          <Report />
-        </Route>
-        <Route exact path="/modal">
-          <ReportOverviewModal />
-        </Route>
+        <Route exact path="/home" component={Home}></Route>
+        <Route exact path="/candidate-report/:id" component={Report}></Route>
+        <Route exact path="/modal" component={ReportOverviewModal}></Route>
+        <Redirect from="/" to="/home"></Redirect>
       </Switch>
+      <Footer />
     </div>
   );
 }

@@ -37,9 +37,7 @@ function Home() {
     
     return(
         <div>
-            <Header className="bg-primary" />
                 <CandidatePage candidates={candidates} />
-            <Footer />
             
         </div>
     );

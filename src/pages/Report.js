@@ -13,10 +13,8 @@ export default function Report() {
 
     return(
         <div>
-            <Header />
             <CandidateDetails id={id} />
             <CandidateReports id={id} />
-            <Footer />
         </div>
     );
 }
