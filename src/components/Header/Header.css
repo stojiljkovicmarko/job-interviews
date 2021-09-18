@@ -2,3 +2,11 @@ header {
     background-color: rgb(231, 227, 227);
     border-bottom: 1px solid rgb(194, 191, 191);
 }
+
+.btn-header a {
+    color: rgb(65, 64, 64);
+}
+
+.btn-header a:hover {
+    color:rgb(255, 255, 255);
+}

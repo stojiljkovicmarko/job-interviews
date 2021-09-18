@@ -78,7 +78,7 @@ function Login({ setToken }) {
           <button
             onClick={submitHandler}
             type="submit"
-            className="btn btn-lg w-100"
+            className="btn btn-lg w-100 btn-custom"
           >
             {" "}
             SIGN IN{" "}
