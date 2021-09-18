@@ -9,21 +9,6 @@ import "./CandidatePage.css";
 function CandidatePage({ candidates }) {
   //console.log("from candidate page: ", candidates);
 
-<<<<<<< HEAD
-    //console.log("from candidate page: ", candidates);
-
-    return (
-        <div className="container">
-            <div className="row">
-                {candidates.map(candidate => {
-                    if (candidate.name) {
-                        return <CandidateCard className="card user-card" candidate={candidate} key={candidate.id} />
-                    }
-                })}
-            </div>
-        </div>
-    );
-=======
   const [searchText, setSearchText] = useState('');
   console.log("form cand page", searchText);
 
@@ -47,7 +32,6 @@ function CandidatePage({ candidates }) {
       </div>
     </div>
   );
->>>>>>> 7e117b3aacc99e617c6ea99115257453282f2d8e
 }
 
 export default CandidatePage;
