@@ -15,14 +15,7 @@ export default function CandidateDetails({ id }) {
   }, [id]);
 
   useEffect(() => {
-      try{
     loadCandidates();
-      } catch(e){
-          if(e.message === 'Token expired') {
-              localStorage.removeItem('token');
-              history.push('/login');
-          }
-      }
   }, [loadCandidates]);
   
   console.log(candidate, id);

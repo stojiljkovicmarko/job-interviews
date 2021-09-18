@@ -15,7 +15,6 @@ function setToken(token) {
   if (token !== undefined) {
     localStorage.setItem("token", JSON.stringify(token));
   }
-
 }
 
 
@@ -36,7 +35,7 @@ function App() {
   return (
     <div>
       <Switch>
-        <Route exact path="/login">
+      <Route exact path="/login">
           <Login setToken={setToken} />
         </Route>
         <Route exact path="/">

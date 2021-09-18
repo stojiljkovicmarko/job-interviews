@@ -18,12 +18,7 @@ export default class CandidateService {
         }
 
         return fetch(url, requestOptions)
-            .then(response => {
-                if(resposne.status === 401){
-                    throw new  Error('Token expired');
-                }
-                response.json()
-            })
+            .then(response => response.json())
             .then(data => {
                 return data.map(c => new Candidate(c.id, c.name, c.birthday, c.avatar, c.email, c.education));
             });
