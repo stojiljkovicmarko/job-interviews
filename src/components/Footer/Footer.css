@@ -1,10 +1,13 @@
 .footer {
-    background-color: black;
-    color: whitesmoke;
+    background-color: rgb(199, 194, 194);
+    color: rgb(68, 67, 67);
     text-align: center;
     height: 2rem;
     margin-top: 2rem;
     position: fixed;
+    display: flex;      
+    flex-direction: column; 
+    flex: 1 0 auto; 
     bottom: 0;
     left: 0;
     width: 100vw;
