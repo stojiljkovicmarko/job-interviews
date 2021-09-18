@@ -42,8 +42,6 @@ function Login({ setToken }) {
       password: password,
     };
 
-    console.log(user);
-
     const token = await loginUser(user);
     setToken(token.accessToken);
     history.push("/home");

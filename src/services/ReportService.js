@@ -7,8 +7,6 @@ export default class ReportService {
 
         const token = "Bearer " + SessionStorageService.getToken();
 
-        console.log(token);
-
         const url = "http://localhost:3333/api/reports";
 
         const requestOptions = {
@@ -22,9 +20,7 @@ export default class ReportService {
         return fetch(url, requestOptions)
             .then(response => response.json())
             .then(data => {
-                console.log(data);
                 let newArr = data.map(c => new Report(c.id, c.candidateId, c.candidateName, c.companyId, c.companyName, c.interviewDate, c.phase, c.status, c.note));
-                console.log("novi ar", newArr);
                 return newArr;
             });
 

@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 
 import ReportService from "../../services/ReportService";
+import ReportOverviewModal from "../Report/ReportOverviewModal";
 
 import { formatDate } from "../../utils/helperFunctions";
-import Modal from "react-modal";
-import ReportOverviewModal from "../Report/ReportOverviewModal";
 
 export default function CandidateReports({ id }) {
 
@@ -14,6 +13,10 @@ export default function CandidateReports({ id }) {
 
     const loadReports = () => {
         ReportService.fetchAllReportIds().then(reports => setReports(reports));
+    }
+
+    const toggleModal = () => {
+        setIsModalOpen(!isModalOpen);
     }
 
     useEffect(() => {
@@ -45,7 +48,7 @@ export default function CandidateReports({ id }) {
                                 <td className="col-2 text-center">
                                     <button className="btn" onClick={() => {
                                         setCandidateReport(report);
-                                        setIsModalOpen(true);
+                                        toggleModal();
                                     }}>
                                         <i className="fas fa-info-circle"></i>
                                     </button>

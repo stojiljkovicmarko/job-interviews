@@ -22,7 +22,7 @@ export default function CandidateDetails({ id }) {
         <>
             {candidates.map(candidate => {
                 if (candidate.id === parseInt(id)) {
-                    return (<div className="container">
+                    return (<div className="container" key={candidate.id}>
                         <div className="row">
                             <div className="col-md-4 p-1 div-img d-flex justify-content-center">
                                 <img className="img-fluid" alt="" src="https://avataaars.io/?accessoriesType=Kurt&avatarStyle=Circle&clotheColor=Blue01&clotheType=Hoodie&eyeType=EyeRoll&eyebrowType=RaisedExcitedNatural&facialHairColor=Blonde&facialHairType=BeardMagestic&hairColor=Black&hatColor=White&mouthType=Sad&skinColor=Yellow&topType=ShortHairShortWaved" />

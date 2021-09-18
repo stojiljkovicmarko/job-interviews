@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 function CandidateCard(props) {
 
-    const { id, name, birthday, avatar, email, education } = props.candidate;
+    const { id, name, email } = props.candidate;
 
     const generator = new AvatarGenerator();
 
