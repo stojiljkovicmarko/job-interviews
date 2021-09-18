@@ -19,15 +19,15 @@ function CandidateCard(props) {
     // }
 
     return (
-        
-            <div className="card col-3 pt-2 mb-2 text-decocation-none">
-                <Link to={"candidate-report/" + id} state={{name: name}}>
-                <img className="card-img" src={avatarToDisplay} alt="" />
-                <h4 className="card-text color-dark my-2"> {name} </h4>
-                <p className="text-muted"> {email} </p>
+        <div className="gutter">
+            <div className="card text-center scale pt-2 mb-2">
+                <Link to={"candidate-report/" + id} state={{ name: name }}>
+                    <img className="card-img" src={avatarToDisplay} alt="" />
+                    <h4 className="card-text color-dark my-2"> {name} </h4>
+                    <p className="text-muted"> {email} </p>
                 </Link>
             </div>
-        
+        </div>
     );
 };
 
