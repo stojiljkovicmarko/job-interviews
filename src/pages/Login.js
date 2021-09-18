@@ -42,8 +42,6 @@ function Login({ setToken }) {
       password: password,
     };
 
-    console.log(user);
-
     const token = await loginUser(user);
     setToken(token.accessToken);
     history.push("/home");
@@ -61,7 +59,7 @@ function Login({ setToken }) {
               onChange={emailHandler}
               placeholder="email"
               id="email"
-              class="form-control"
+              className="form-control"
             />
           </div>
 
@@ -72,13 +70,13 @@ function Login({ setToken }) {
               onChange={passwordHandler}
               placeholder="password"
               id="password"
-              class="form-control"
+              className="form-control"
             />
           </div>
           <button
             onClick={submitHandler}
             type="submit"
-            className="btn btn-lg w-100"
+            className="btn btn-lg w-100 btn-custom"
           >
             {" "}
             SIGN IN{" "}

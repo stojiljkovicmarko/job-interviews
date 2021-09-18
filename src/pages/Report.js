@@ -1,8 +1,6 @@
 import React from "react";
 
 
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
 import CandidateDetails from "../components/CandidatesReport/CandidateDetails";
 import CandidateReports from "../components/CandidatesReport/CandidateReports";
 import { useParams } from "react-router";

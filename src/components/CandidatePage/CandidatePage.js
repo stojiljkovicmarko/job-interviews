@@ -5,6 +5,7 @@ import CandidateCard from "../CandidateCard/CandidateCard";
 import "./CandidatePage.css";
 
 function CandidatePage({ candidates }) {
+  //console.log("from candidate page: ", candidates);
 
     //console.log("from candidate page: ", candidates);
 
