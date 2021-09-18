@@ -25,5 +25,25 @@ export default class CandidateService {
 
     }
 
+    static fetchSingle(id){
+        const token = "Bearer " + SessionStorageService.getToken();
+
+        const url = `http://localhost:3333/api/candidates/${id}`;
+
+        const requestOptions = {
+            method: "GET",
+            headers: {
+                "Authorization": token,
+                "Content-type": "application/json"
+            }
+        }
+
+        return fetch(url, requestOptions)
+            .then(response => response.json())
+            .then(c => {
+                return new Candidate(c.id, c.name, c.birthday, c.avatar, c.email, c.education);
+            });
+    }
+
 
 }

@@ -39,7 +39,7 @@ function App() {
 
       <Header />
       <Switch>
-        <Route exact path="/login">
+      <Route exact path="/login">
           <Login setToken={setToken} />
         </Route>
         <Route exact path="/" component={Home}></Route>
