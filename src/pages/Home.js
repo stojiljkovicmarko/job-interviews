@@ -1,17 +1,15 @@
 import { useEffect, useState } from "react";
 
-import Header from "../components/Header/Header";
 import CandidatePage from "../components/CandidatePage/CandidatePage";
-import Footer from "../components/Footer/Footer";
 import CandidateService from "../services/CandidateService";
 import CompanyService from "../services/CompanyService";
 import ReportService from "../services/ReportService";
 
 function Home() {
 
-    const [ candidates, setCandidates ] = useState([]);
-    const [ companies, setCompanies ] = useState([]);
-    const [ report, setReport ] = useState([]);
+    const [candidates, setCandidates] = useState([]);
+    const [companies, setCompanies] = useState([]);
+    const [report, setReport] = useState([]);
 
 
     const loadCandidates = () => {
@@ -23,7 +21,7 @@ function Home() {
     }
 
     const loadReport = () => {
-        ReportService.fetchAllReportIds().then (report => setReport(report));
+        ReportService.fetchAllReportIds().then(report => setReport(report));
     }
 
     useEffect(() => {
@@ -33,12 +31,11 @@ function Home() {
     }, []);
 
     console.log("form home: ", candidates); // Neoitreban deo
-    console.log ('form-home:', report ); //Nepotreban deo
-    
-    return(
+    console.log('form-home:', report); //Nepotreban deo
+
+    return (
         <div>
-                <CandidatePage candidates={candidates} />
-            
+            <CandidatePage candidates={candidates} />
         </div>
     );
 }
