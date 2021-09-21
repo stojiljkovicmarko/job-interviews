@@ -41,7 +41,7 @@ export default function ReportOverviewModal({ candidateReport, isModalOpen, setI
             <div className="flex flex-column">
                 <div className="d-flex justify-content-between">
                     <h2 className="d-inline">{candidateReport.candidateName}</h2>
-                    <button className="btn btn-outline-danger" onClick={toggleModal}> <i class="fas fa-times"></i> </button>
+                    <button className="btn btn-outline-danger" onClick={toggleModal}> <i className="fas fa-times"></i> </button>
                 </div>
                 <hr className="my-2" />
                 <div className="d-flex flex-row">

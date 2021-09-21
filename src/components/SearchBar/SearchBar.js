@@ -3,28 +3,16 @@ import React from "react";
 import "./SearchBar.css"
 
 
-function SearchBar({searchText,setSearchText}) {
-//   const { 
-//     onSearch 
-//   } = props;
-
-  
+function SearchBar({ searchText, setSearchText }) {
 
   const handleInput = (e) => {
     const text = e.target.value
-    //console.log (text)
     setSearchText(text)
   }
 
-//   const handleEnterKeyPressed = (e) => {
-//     if(e.key=== 'Enter') {
-//       onSearch(searchText)
-//     }
-//   }
-
   return (
     <div>
-      <div className="searchBar d-flex justify-content-end"> 
+      <div className="searchBar d-flex justify-content-end mb-2"> 
         <input
           className="form-control w-25"
           onChange={handleInput}
