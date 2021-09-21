@@ -5,17 +5,19 @@ import CandidateService from "../services/CandidateService";
 
 function Home() {
 
-    const [ candidates, setCandidates ] = useState([]);
+    const [candidates, setCandidates] = useState([]);
 
     const loadCandidates = () => {
-        CandidateService.fetchAllCandidates().then(candidates => setCandidates(candidates));
+        CandidateService.fetchAllCandidates().then(candidates => {
+            setCandidates(candidates);
+        });
     }
 
     useEffect(() => {
         loadCandidates();
     }, []);
 
-    return(
+    return (
         <div>
             <CandidatePage candidates={candidates} />
         </div>

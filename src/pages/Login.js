@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import { useHistory } from "react-router-dom";
+import SessionStorageService from "../services/SessionStorageService";
 import "./login.css";
 
 async function loginUser(credentials) {
@@ -14,13 +14,15 @@ async function loginUser(credentials) {
 
   return fetch(url, requestOptions).then((response) => {
     if (response.status === 400) {
-      alert("try again");
+      alert("Username or password is incorrect!\n Please try again.");
+      //window.location.reload();
     }
     return response.json();
   });
 }
 
-function Login({ setToken }) {
+function Login({ onLogIn}) {
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -32,8 +34,6 @@ function Login({ setToken }) {
     setPassword(event.target.value);
   };
 
-  let history = useHistory();
-
   const submitHandler = async (event) => {
     event.preventDefault();
 
@@ -43,8 +43,9 @@ function Login({ setToken }) {
     };
 
     const token = await loginUser(user);
-    setToken(token.accessToken);
-    history.push("/home");
+    //if za token
+    SessionStorageService.setToken(token.accessToken);
+    onLogIn(true);
   };
 
   return (

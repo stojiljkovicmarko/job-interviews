@@ -1,32 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
-import ReportService from "../../services/ReportService";
 import ReportOverviewModal from "../Report/ReportOverviewModal";
 
 import { formatDate } from "../../utils/helperFunctions";
 
-export default function CandidateReports({ id }) {
+export default function CandidateReports({ reports }) {
 
     const [candidateReport, setCandidateReport] = useState({});
-    const [reports, setReports] = useState([]);
     const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const loadReports = () => {
-        ReportService.fetchAllReportIds().then(reports => setReports(reports));
-    }
 
     const toggleModal = () => {
         setIsModalOpen(!isModalOpen);
     }
 
-    useEffect(() => {
-        loadReports();
-    }, []);
-
     //we could use react table hooks instead of bootstrap table
     //https://react-table.tanstack.com/
-
-
     return (
         <div className="container mt-4">
             <h1> Reports </h1>
@@ -40,7 +28,6 @@ export default function CandidateReports({ id }) {
                 </thead>
                 <tbody>
                     {reports.map((report, index) => {
-                        if (report.candidateId === parseInt(id)) {
                             return (<tr key={index}>
                                 <td>{report.companyName}</td>
                                 <td>{formatDate(report.interviewDate)}</td>
@@ -54,15 +41,15 @@ export default function CandidateReports({ id }) {
                                     </button>
                                 </td>
                             </tr>);
-                        }
+
                     })}
                 </tbody>
             </table>
 
-            <ReportOverviewModal 
-            candidateReport={candidateReport}
-            isModalOpen={isModalOpen}
-            setIsModalOpen={setIsModalOpen} />
+            <ReportOverviewModal
+                candidateReport={candidateReport}
+                isModalOpen={isModalOpen}
+                setIsModalOpen={setIsModalOpen} />
 
         </div>
     );

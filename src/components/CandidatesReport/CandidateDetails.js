@@ -1,26 +1,14 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
-import CandidateService from "../../services/CandidateService";
+import React from "react";
 
+import ErrorComponent from "../ErrorComponent/ErrorComponent";
 import { formatDate } from "../../utils/helperFunctions";
 
 import "./CandidateDetails.css";
 
-export default function CandidateDetails({ id }) {
-  const [candidate, setCandidate] = useState(null);
+export default function CandidateDetails({ candidate }) {
 
-  const loadCandidates = useCallback(() => {
-    CandidateService.fetchSingle(id).then((candidate) =>
-      setCandidate(candidate)
-    );
-  }, [id]);
-
-  useEffect(() => {
-    loadCandidates();
-  }, [loadCandidates]);
   
-  console.log(candidate, id);
-
-  if(!candidate) return <h1>Loading...</h1>
+  if(!candidate) return <ErrorComponent errorMessage={"No information on requested candidate"} />
 
   return (
     <div className="container" key={candidate.id}>
@@ -29,7 +17,7 @@ export default function CandidateDetails({ id }) {
           <img
             className="img-fluid"
             alt=""
-            src="https://avataaars.io/?accessoriesType=Kurt&avatarStyle=Circle&clotheColor=Blue01&clotheType=Hoodie&eyeType=EyeRoll&eyebrowType=RaisedExcitedNatural&facialHairColor=Blonde&facialHairType=BeardMagestic&hairColor=Black&hatColor=White&mouthType=Sad&skinColor=Yellow&topType=ShortHairShortWaved"
+            src={candidate.avatar}
           />
         </div>
         <div className="col-md-8">
