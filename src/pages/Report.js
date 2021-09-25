@@ -7,6 +7,8 @@ import CandidateDetails from "../components/CandidatesReport/CandidateDetails";
 import CandidateReports from "../components/CandidatesReport/CandidateReports";
 import { Spinner } from "../components/Spinner/Spinner";
 import ReportService from "../services/ReportService";
+import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 
 export default function Report() {
 
@@ -21,7 +23,8 @@ export default function Report() {
 
     const loadSingleCandidateReports = useCallback(() => {
         ReportService.fetchSingleCandidateReports(id)
-            .then(singleCandidateReports => setSingleCandidateReports(singleCandidateReports)).finally(() => { setIsLoading(false) });
+            .then(singleCandidateReports => setSingleCandidateReports(singleCandidateReports))
+            .finally(() => { setIsLoading(false) });
     }, [id]);
 
 
@@ -30,9 +33,6 @@ export default function Report() {
             loadSingleCandidateReports();
         } catch (err) {
             setError(err.message);
-            if (error.message === "Token expired") {
-                window.location.replace("http://localhost:3000/login");
-            }
         }
     }, [loadSingleCandidateReports, error.message]);
 
@@ -46,8 +46,10 @@ export default function Report() {
 
     return (
         <div>
+            <Header />
             <CandidateDetails candidate={candidate} />
             <CandidateReports reports={singleCandidateReports} />
+            <Footer />
         </div>
     );
 }

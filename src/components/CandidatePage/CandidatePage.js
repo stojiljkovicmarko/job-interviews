@@ -8,7 +8,7 @@ import "./CandidatePage.css";
 
 function CandidatePage({ candidates }) {
 
-  const [searchText, setSearchText] = useState('');
+  const [searchText, setSearchText] = useState("");
 
   return (
     <div className="container">

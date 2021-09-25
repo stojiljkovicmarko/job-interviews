@@ -1,0 +1,28 @@
+.candidate-div {
+    box-sizing: border-box;
+}
+
+.cand-img img{
+    width: 75px;
+}
+
+.candidate {
+    background-color: gainsboro;
+    padding: 4px;
+    display: flex;
+    width: 49%;
+    margin: 3px;
+    word-wrap: break-word;
+}
+
+.candidate:hover {
+    border: 2px solid black;
+}
+
+.company-table {
+    font-size: 1.2rem;
+}
+
+.company-row td {
+    padding: 0.6rem;
+}
