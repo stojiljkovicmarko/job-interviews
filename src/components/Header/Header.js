@@ -13,7 +13,7 @@ const Header = () => {
                 <nav className="navbar navbar-light ">
                     <div className="nav-wrapper container-fluid">
                         <h1>Interviews Reports </h1>
-                        <Link to="/">
+                        <Link to="/home">
                             <div className="btn btn-outline-secondary btn-header">
                                 Candidates
                             </div>

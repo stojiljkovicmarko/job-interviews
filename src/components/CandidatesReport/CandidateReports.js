@@ -21,7 +21,7 @@ export default function CandidateReports({ reports }) {
             <table className="table table-bordered table-striped mt-4">
                 <thead className="thead-dark">
                     <tr>
-                        <th className="col-4">Company</th>
+                        <th className="col-4" data-field="company" data-sortable="">Company</th>
                         <th className="col-4">Interview date</th>
                         <th className="col-4" colSpan="2">Status</th>
                     </tr>

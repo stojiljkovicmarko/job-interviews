@@ -1,6 +1,6 @@
 import React from "react"
 
-export default function Error( {errorMessage} ) {
+export default function ErrorComponent( {errorMessage} ) {
 
     if(!errorMessage) {
         errorMessage = "Something went wrong";

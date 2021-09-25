@@ -1,23 +1,20 @@
 import { useState } from 'react';
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, Redirect } from "react-router-dom";
 
 
+import Admin from './pages/Admin';
 import Home from "./pages/Home";
 import Login from './pages/Login';
 import Report from "./pages/Report";
-import Header from "./components/Header/Header";
-import Footer from "./components/Footer/Footer";
-
-import './App.css';
 import ReportOverviewModal from "./components/Report/ReportOverviewModal";
 import SessionStorageService from './services/SessionStorageService';
 
+import './App.css';
+import CreateReport from './components/wizard/CreateReport';
 
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(!!SessionStorageService.getItem('token'));
-
-  console.log(isLoggedIn);
 
   if (!isLoggedIn) {
     return <Login onLogIn={setIsLoggedIn} />
@@ -25,14 +22,16 @@ function App() {
 
   return (
     <div>
-      <Header />
       <Switch>
-        <Route exact path="/" component={Home}></Route>
+        <Route exact path="/login"><Login onLogIn={setIsLoggedIn} /></Route>
         <Route exact path="/home" component={Home}></Route>
         <Route exact path="/candidate-report/:id" component={Report}></Route>
         <Route exact path="/modal" component={ReportOverviewModal}></Route>
+        <Route exact path="/admin" component={Admin}></Route>
+        <Route exact path="/reports" component={Admin}></Route>
+        <Route exact path="/create-report" component={CreateReport}></Route>
+        <Redirect from="/" to="/home"></Redirect>
       </Switch>
-      <Footer />
     </div>
   );
 }

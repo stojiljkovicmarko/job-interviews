@@ -8,7 +8,7 @@ import "./CandidateDetails.css";
 export default function CandidateDetails({ candidate }) {
 
   
-  if(!candidate) return <ErrorComponent errorMessage={"No information on requested candidate"} />
+  if(!candidate) return <ErrorComponent errorMessage={"No information on requested candidate!"} />
 
   return (
     <div className="container" key={candidate.id}>

@@ -11,7 +11,7 @@ function SearchBar({ searchText, setSearchText }) {
   }
 
   return (
-    <div>
+    <div className="container">
       <div className="searchBar d-flex justify-content-end mb-2"> 
         <input
           className="form-control w-25"
