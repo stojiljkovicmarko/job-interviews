@@ -4,14 +4,12 @@ import SearchBar from "../SearchBar/SearchBar";
 
 import "./steps.css"
 
-export default function Step2({ companies, prevStep, nextStep }) {
+export default function Step2({ companies, handleOnChange, prevStep, nextStep }) {
 
     const [searchText, setSearchText] = useState("");
 
-    console.log("from step 2", companies);
-
     const onSelectCompany = (company) => {
-        console.log(company);
+        //console.log(company);
     }
 
     return (
@@ -36,7 +34,9 @@ export default function Step2({ companies, prevStep, nextStep }) {
                             <tbody className="company-table">
                                 {companies.filter(company => company.companyName.toLowerCase().includes(searchText))
                                     .map((company, index) => {
-                                        return (<tr className="border company-row" key={index} onClick={() => {onSelectCompany(company)}}>
+                                        return (<tr className="border company-row" 
+                                        key={index} 
+                                        onClick={() => { onSelectCompany(company); handleOnChange("company", company) }}>
                                             <td>
                                                 <div className="text-muted">Company</div>
                                                 <div className="m-0">{company.companyName}</div>

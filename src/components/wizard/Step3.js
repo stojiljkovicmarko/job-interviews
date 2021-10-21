@@ -1,8 +1,11 @@
 import DatePicker from "react-datepicker";
+import { useState } from "react";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function Step3({ prevStep }) {
+export default function Step3({ handleOnChange, prevStep }) {
+
+    const [startDate, setStartDate] = useState(new Date());
 
     return (
         <div className="container">
@@ -18,41 +21,46 @@ export default function Step3({ prevStep }) {
                         <span>3</span> Fill Report Detail
                     </div>
                 </div>
-                <div className="candidate-div col-9 border-left border-dark p-4">
-
-                    <div className="row">
+                <div className="col-9 border-left border-dark">
+                    <div className="d-flex">
                         <div className="col-4">
-                            <label for="datepicker">Pick a date: </label>
-                            <DatePicker name="datepicker" />
+                            <label htmlFor="datepicker">Pick a date: </label>
+                            <DatePicker className="w-100" name="datepicker" 
+                            selected={startDate} 
+                            onChange={(date) => { setStartDate(date); handleOnChange("date", startDate) }} />
                         </div>
                         <div className="col-4">
-                            <label for="phase">Phase: </label><br />
-                            <select className="form-select" aria-label="Default select example" name="phase">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <label htmlFor="phase">Phase: </label><br />
+                            <select className="form-select w-100" name="phase" 
+                            onChange={(e) => {handleOnChange("phase", e.target.value)}}>
+                                <option value="" disabled>Select</option>
+                                <option value="CV">CV</option>
+                                <option value="HR">HR</option>
+                                <option value="Tech">Tech</option>
+                                <option value="Final">Final</option>
                             </select>
                         </div>
                         <div className="col-4">
-                            <label for="status">Status: </label><br />
-                            <select className="form-select" aria-label="Default select example" name="status">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
+                            <label htmlFor="status">Status: </label><br />
+                            <select className="form-select w-100" name="status"
+                            onChange={(e) => {handleOnChange("status", e.target.value)}}>
+                                <option value="" disabled>Select</option>
+                                <option value="Passed">Passed</option>
+                                <option value="Declined">Declined</option>
                             </select>
                         </div>
                     </div>
-                    <div class="form-floating mb-3">
-                        <input type="text" class="form-control" id="floatingInput" placeholder="Notes..." />
+                    <div className="p-3">
+                        <textarea className="w-100" rows="6" name="notes" placeholder="Some notes"
+                        onChange={(e) => {handleOnChange("notes", e.target.value)}}>
+                        </textarea>
                     </div>
 
                     <div className="d-flex justify-content-between">
                         <button className="btn btn-dark" onClick={prevStep}>
                             Previous
                         </button>
-                        <button className="btn btn-primary" onClick={prevStep}>
+                        <button className="btn btn-primary">
                             Submit
                         </button>
                     </div>

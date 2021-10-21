@@ -8,7 +8,7 @@ export default function Step1({ candidates, handleOnChange, nextStep }) {
     const [searchText, setSearchText] = useState("");
 
     const onSelectCandidate = (candidate) => {
-        console.log(candidate);
+        //console.log(candidate);
     }
 
     return (

@@ -31,7 +31,8 @@ export default function CreateReport() {
     }
 
     const handleOnChange = (property, value) => {
-        setReport((prevState) => ({ ...prevState, [property]: value }))
+        setReport((prevState) => ({ ...prevState, [property]: value }));
+        console.log("this is a report:", report);
     }
 
     //function to submit the data collected
@@ -63,9 +64,9 @@ export default function CreateReport() {
             case 1:
                 return <Step1 candidates={candidates} handleOnChange={handleOnChange} nextStep={nextStep}/>
             case 2:
-                return <Step2 companies={companies} prevStep={prevStep} nextStep={nextStep}/>
+                return <Step2 companies={companies} handleOnChange={handleOnChange} prevStep={prevStep} nextStep={nextStep}/>
             case 3:
-                return <Step3 prevStep={prevStep}/>
+                return <Step3 handleOnChange={handleOnChange} prevStep={prevStep}/>
         }
     }
 
