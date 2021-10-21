@@ -2,6 +2,14 @@
     width: 75px;
 }
 
+.currentStep {
+    width: fit-content;
+    padding: 8px;
+    font-weight: bold;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
 .candidate {
     background-color: gainsboro;
     padding: 4px;

@@ -11,13 +11,13 @@ export default function Step3({ handleOnChange, submitReport, prevStep }) {
         <div className="container">
             <div className="row">
                 <div className="col-3">
-                    <div className="mb-4 currentStep">
+                    <div className="mb-4">
                         <span>1</span> Select Candidate
                     </div>
                     <div className="mb-4">
                         <span>2</span> Select Company
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-4 currentStep">
                         <span>3</span> Fill Report Detail
                     </div>
                 </div>
@@ -42,7 +42,7 @@ export default function Step3({ handleOnChange, submitReport, prevStep }) {
                         </div>
                         <div className="col-4">
                             <label htmlFor="status">Status: </label><br />
-                            <select className="form-select w-100" name="status"
+                            <select className="form-select w-100" name="status" required
                             onChange={(e) => {handleOnChange("status", e.target.value)}}>
                                 <option value="">Select</option>
                                 <option value="Passed">Passed</option>
@@ -51,7 +51,7 @@ export default function Step3({ handleOnChange, submitReport, prevStep }) {
                         </div>
                     </div>
                     <div className="p-3">
-                        <textarea className="w-100" rows="6" name="notes" placeholder="Some notes"
+                        <textarea className="w-100" rows="6" name="notes" placeholder="Some notes" required
                         onChange={(e) => {handleOnChange("notes", e.target.value)}}>
                         </textarea>
                     </div>

@@ -8,18 +8,14 @@ export default function Step2({ companies, handleOnChange, prevStep, nextStep })
 
     const [searchText, setSearchText] = useState("");
 
-    const onSelectCompany = (company) => {
-        //console.log(company);
-    }
-
     return (
         <div className="container">
             <div className="row">
                 <div className="col-3">
-                    <div className="mb-4 currentStep">
+                    <div className="mb-4 ">
                         <span>1</span> Select Candidate
                     </div>
-                    <div className="mb-4">
+                    <div className="mb-4 currentStep">
                         <span>2</span> Select Company
                     </div>
                     <div className="mb-4">
@@ -36,7 +32,7 @@ export default function Step2({ companies, handleOnChange, prevStep, nextStep })
                                     .map((company, index) => {
                                         return (<tr className="border company-row" 
                                         key={index} 
-                                        onClick={() => { onSelectCompany(company); handleOnChange("company", company) }}>
+                                        onClick={() => { handleOnChange("company", company) }}>
                                             <td>
                                                 <div className="text-muted">Company</div>
                                                 <div className="m-0">{company.companyName}</div>

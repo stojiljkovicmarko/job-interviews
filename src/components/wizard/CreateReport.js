@@ -34,20 +34,19 @@ export default function CreateReport() {
 
     const handleOnChange = (property, value) => {
         setReport((prevState) => ({ ...prevState, [property]: value }));
-        console.log("this is a report:", report);
     }
 
     //function to submit the data collected
     const submitReport = () => {
         console.log("KONACNI REPORT: ", report);
-        ReportService.createReport(report).
-            then(response => {
+        ReportService.createReport(report)
+            .then(response => {
                 console.log(response);
                 if (response.ok) {
-                    console.log("all ok");
+                    console.log("report created successfully");
                     history.push("/reports");
                 } else {
-                    console.log("not all ok");
+                    console.log("report not created");
                 }
         })
     }

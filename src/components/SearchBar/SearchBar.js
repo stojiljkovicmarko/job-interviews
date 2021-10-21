@@ -18,7 +18,7 @@ function SearchBar({ searchText, setSearchText }) {
           onChange={handleInput}
           type="text"
           value={searchText}
-          placeholder="Search User"
+          placeholder="Search..."
         />
       </div>
     </div>

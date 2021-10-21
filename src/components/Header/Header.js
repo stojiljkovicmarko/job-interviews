@@ -1,21 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import SessionStorageService from "../../services/SessionStorageService";
 
 import "./Header.css";
 
 const Header = ({onLogOut}) => {
 
-
     return (
         <header className="mb-3">
             <div className="navbar-fixed container p-0">
-                <nav className="navbar navbar-light ">
+                <nav className="navbar navbar-light">
                     <div className="nav-wrapper container-fluid">
                         <h1>Interviews Reports </h1>
                         <div>
                             <Link to="/home">
-                                <div className="btn btn-outline-secondary btn-header mx-2">
+                                <div className="btn btn-outline-secondary btn-header">
                                     Candidates
                                 </div>
                             </Link>

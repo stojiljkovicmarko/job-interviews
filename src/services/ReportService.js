@@ -1,4 +1,5 @@
 import Report from "../entities/Report";
+import { getRandomId } from "../utils/helperFunctions";
 import SessionStorageService from "./SessionStorageService";
 
 export default class ReportService {
@@ -79,8 +80,10 @@ export default class ReportService {
 
     static createReport(report) {
 
+        console.log("pred upisivanje", report);
+
         const forSubmit = {
-            "id": 123,
+            "id": getRandomId(),
             "candidateId": report.candidate.id,
             "candidateName": report.candidate.name,
             "companyId": report.company.CompanyId,

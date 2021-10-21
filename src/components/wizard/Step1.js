@@ -7,10 +7,6 @@ export default function Step1({ candidates, handleOnChange, nextStep }) {
 
     const [searchText, setSearchText] = useState("");
 
-    const onSelectCandidate = (candidate) => {
-        console.log(candidate);
-    }
-
     return (
         <div className="container">
             <div className="row">
@@ -33,7 +29,7 @@ export default function Step1({ candidates, handleOnChange, nextStep }) {
                                 return (
                                     <div className="candidate"
                                         key={index}
-                                        onClick={() => { onSelectCandidate(candidate); handleOnChange("candidate", candidate) }}>
+                                        onClick={() => { handleOnChange("candidate", candidate) }}>
                                         <div className="cand-img">
                                             <img className="" src={candidate.avatar} alt="Avatar of candidate"/>
                                         </div>

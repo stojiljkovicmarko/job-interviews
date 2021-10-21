@@ -7,4 +7,8 @@ const formatDate = (date) => {
     return (day + "." + (month + 1) + "." + year + ".");
 }
 
-export { formatDate };
+const getRandomId = () => {
+    return Math.floor(Math.random() * 90000000 - 10000000);
+}
+
+export { formatDate, getRandomId };
