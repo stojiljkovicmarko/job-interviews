@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-
+import { useHistory } from "react-router-dom";
 
 import Step1 from "./Step1";
 import Step2 from "./Step2";
@@ -8,9 +8,11 @@ import CandidateService from "../../services/CandidateService";
 import CompanyService from "../../services/CompanyService";
 import { Spinner } from "../Spinner/Spinner";
 import HeaderAdmin from "../admin/HeaderAdmin/HeaderAdmin";
+import ReportService from "../../services/ReportService";
 
 export default function CreateReport() {
 
+    let history = useHistory();
     const [candidates, setCandidates] = useState({});
     const [companies, setCompanies] = useState({});
     //object of report
@@ -36,6 +38,19 @@ export default function CreateReport() {
     }
 
     //function to submit the data collected
+    const submitReport = () => {
+        console.log("KONACNI REPORT: ", report);
+        ReportService.createReport(report).
+            then(response => {
+                console.log(response);
+                if (response.ok) {
+                    console.log("all ok");
+                    history.push("/reports");
+                } else {
+                    console.log("not all ok");
+                }
+        })
+    }
 
     const loadCandidates = () => {
         CandidateService.fetchAllCandidates()
@@ -62,11 +77,11 @@ export default function CreateReport() {
     const renderCurrentStep = (step) => {
         switch (step) {
             case 1:
-                return <Step1 candidates={candidates} handleOnChange={handleOnChange} nextStep={nextStep}/>
+                return <Step1 candidates={candidates} handleOnChange={handleOnChange} nextStep={nextStep} />
             case 2:
-                return <Step2 companies={companies} handleOnChange={handleOnChange} prevStep={prevStep} nextStep={nextStep}/>
+                return <Step2 companies={companies} handleOnChange={handleOnChange} prevStep={prevStep} nextStep={nextStep} />
             case 3:
-                return <Step3 handleOnChange={handleOnChange} prevStep={prevStep}/>
+                return <Step3 handleOnChange={handleOnChange} submitReport={submitReport} prevStep={prevStep} />
         }
     }
 

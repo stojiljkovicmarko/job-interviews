@@ -6,7 +6,7 @@ import CandidatePage from "../components/CandidatePage/CandidatePage";
 import CandidateService from "../services/CandidateService";
 import ErrorComponent from "../components/ErrorComponent/ErrorComponent";
 
-function Home() {
+function Home({onLogOut}) {
 
     const [candidates, setCandidates] = useState([]);
     const [error, setError] = useState("");
@@ -31,7 +31,7 @@ function Home() {
 
     return (
         <div>
-            <Header />
+            <Header onLogOut={onLogOut} />
             <CandidatePage candidates={candidates} />
             <Footer />
         </div>

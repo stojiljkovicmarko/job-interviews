@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import "react-datepicker/dist/react-datepicker.css";
 
-export default function Step3({ handleOnChange, prevStep }) {
+export default function Step3({ handleOnChange, submitReport, prevStep }) {
 
     const [startDate, setStartDate] = useState(new Date());
 
@@ -33,7 +33,7 @@ export default function Step3({ handleOnChange, prevStep }) {
                             <label htmlFor="phase">Phase: </label><br />
                             <select className="form-select w-100" name="phase" 
                             onChange={(e) => {handleOnChange("phase", e.target.value)}}>
-                                <option value="" disabled>Select</option>
+                                <option value="">Select</option>
                                 <option value="CV">CV</option>
                                 <option value="HR">HR</option>
                                 <option value="Tech">Tech</option>
@@ -44,7 +44,7 @@ export default function Step3({ handleOnChange, prevStep }) {
                             <label htmlFor="status">Status: </label><br />
                             <select className="form-select w-100" name="status"
                             onChange={(e) => {handleOnChange("status", e.target.value)}}>
-                                <option value="" disabled>Select</option>
+                                <option value="">Select</option>
                                 <option value="Passed">Passed</option>
                                 <option value="Declined">Declined</option>
                             </select>
@@ -60,7 +60,7 @@ export default function Step3({ handleOnChange, prevStep }) {
                         <button className="btn btn-dark" onClick={prevStep}>
                             Previous
                         </button>
-                        <button className="btn btn-primary">
+                        <button className="btn btn-primary" onClick={submitReport}>
                             Submit
                         </button>
                     </div>

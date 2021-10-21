@@ -16,6 +16,11 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(!!SessionStorageService.getItem('token'));
 
+  const onLogOut = () => {
+    SessionStorageService.removeItem("token");
+    setIsLoggedIn(false);
+  }
+
   if (!isLoggedIn) {
     return <Login onLogIn={setIsLoggedIn} />
   }
@@ -24,7 +29,7 @@ function App() {
     <div>
       <Switch>
         <Route exact path="/login"><Login onLogIn={setIsLoggedIn} /></Route>
-        <Route exact path="/home" component={Home}></Route>
+        <Route exact path="/home"><Home onLogOut={onLogOut} /></Route>
         <Route exact path="/candidate-report/:id" component={Report}></Route>
         <Route exact path="/modal" component={ReportOverviewModal}></Route>
         <Route exact path="/admin" component={Admin}></Route>

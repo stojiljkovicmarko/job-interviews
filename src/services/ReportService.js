@@ -19,13 +19,13 @@ export default class ReportService {
 
         return fetch(url, requestOptions)
             .then(response => {
-                if(response.status === 401) {
+                if (response.status === 401) {
                     SessionStorageService.removeItem("token");
                     throw new Error("Token expired");
                 }
                 return response.json();
             })
-            .then(data => { 
+            .then(data => {
                 return data.filter(report => report.candidateName)
                     .map(c => new Report(c.id, c.candidateId, c.candidateName, c.companyId, c.companyName, c.interviewDate, c.phase, c.status, c.note));
             });
@@ -48,7 +48,7 @@ export default class ReportService {
 
         return fetch(url, requestOptions)
             .then(response => {
-                if(response.status === 401) {
+                if (response.status === 401) {
                     SessionStorageService.removeItem("token");
                     throw new Error("Token expired");
                 }
@@ -76,4 +76,36 @@ export default class ReportService {
 
         return fetch(url, requestOptions);
     }
+
+    static createReport(report) {
+
+        const forSubmit = {
+            "id": 123,
+            "candidateId": report.candidate.id,
+            "candidateName": report.candidate.name,
+            "companyId": report.company.CompanyId,
+            "companyName": report.company.companyName,
+            "interviewDate": report.date,
+            "phase": report.phase,
+            "status": report.status,
+            "note": report.notes
+        }
+
+        const token = "Bearer " + SessionStorageService.getToken();
+
+        const url = "http://localhost:3333/api/reports";
+
+        const requestOptions = {
+            method: "POST",
+            headers: {
+                "Authorization": token,
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify(forSubmit)
+        }
+
+        return fetch(url, requestOptions);
+
+    }
+
 }

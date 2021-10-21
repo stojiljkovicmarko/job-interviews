@@ -11,6 +11,11 @@ export default function HeaderAdmin() {
                             <h1>Reports administration </h1>
                         </div>
                         <div className="justify-content-center">
+                            <Link to="/home">
+                                <div className="btn btn-outline-secondary btn-header mx-2">
+                                    Candidates
+                                </div>
+                            </Link>
                             <Link to="/reports">
                                 <div className="btn btn-outline-secondary btn-header mr-2">
                                     Reports
