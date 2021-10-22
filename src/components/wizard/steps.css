@@ -11,24 +11,28 @@
 }
 
 .candidate {
+    padding: 5px;
+    background-clip: content-box;
+    overflow: hidden;
     background-color: gainsboro;
     padding: 4px;
-    display: flex;
-    width: 49%;
-    margin: 3px;
     word-wrap: break-word;
+}
+.borderActive {
+    border: 2px solid black !important;
 }
 
 .candidate:hover {
     border: 2px solid black;
-}
-
-.activeCandidate {
-    border: 2px solid red;
+    cursor: pointer;
 }
 
 .company-table {
     font-size: 1.2rem;
+}
+
+.company-table:hover {
+    cursor: pointer;
 }
 
 .company-row td {

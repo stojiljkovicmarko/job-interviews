@@ -26,7 +26,9 @@ export default function Step3({ handleOnChange, submitReport, prevStep }) {
                         <div className="col-4">
                             <label htmlFor="datepicker">Pick a date: </label>
                             <DatePicker className="w-100" name="datepicker" 
-                            selected={startDate} 
+                            selected={startDate}
+                            dateFormat="dd/MM/yyyy"
+                            maxDate={new Date()}
                             onChange={(date) => { setStartDate(date); handleOnChange("date", startDate) }} />
                         </div>
                         <div className="col-4">

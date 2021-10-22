@@ -30,9 +30,10 @@ export default function Step2({ companies, handleOnChange, prevStep, nextStep })
                             <tbody className="company-table">
                                 {companies.filter(company => company.companyName.toLowerCase().includes(searchText))
                                     .map((company, index) => {
-                                        return (<tr className="border company-row" 
+                                        return (<tr className="company-row tableRow" 
                                         key={index} 
-                                        onClick={() => { handleOnChange("company", company) }}>
+                                        id={company.id}
+                                        onClick={() => { handleOnChange("company", company); }}>
                                             <td>
                                                 <div className="text-muted">Company</div>
                                                 <div className="m-0">{company.companyName}</div>
