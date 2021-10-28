@@ -7,6 +7,17 @@ import "./steps.css"
 export default function Step2({ companies, handleOnChange, prevStep, nextStep }) {
 
     const [searchText, setSearchText] = useState("");
+    const [isCompanySelected, setIsCompanySelected] = useState(false);
+
+    const addBorderToSelected = (id) => {
+        let selectedCompany= document.getElementById(id);
+        let allCompDivs = document.getElementsByClassName("company");
+        Array.from(allCompDivs).forEach(div => {
+            div.classList.remove("borderActive");
+        });
+        selectedCompany.classList.add("borderActive");
+        setIsCompanySelected(true);
+    }
 
     return (
         <div className="container">
@@ -26,26 +37,32 @@ export default function Step2({ companies, handleOnChange, prevStep, nextStep })
                     <div className="row d-flex mb-5">
                         <SearchBar searchText={searchText} setSearchText={setSearchText} />
 
-                        <table className="table table-hover">
-                            <tbody className="company-table">
-                                {companies.filter(company => company.companyName.toLowerCase().includes(searchText))
-                                    .map((company, index) => {
-                                        return (<tr className="company-row tableRow" 
-                                        key={index} 
-                                        id={company.id}
-                                        onClick={() => { handleOnChange("company", company); }}>
-                                            <td>
+                        <div className="container">
+                        <div className="row row-wrapper">
+                            {companies.filter(company => company.companyName.toLowerCase().includes(searchText.trim()))
+                            .map((company, index) => {
+                                return (
+                                    <div className="col-12 company"
+                                    id={company.companyId} 
+                                    key={index}
+                                    onClick={() => { handleOnChange("company", company); addBorderToSelected(company.companyId) }}
+                                    >
+                                        <div className="row singlerow-wrapper py-2 mb-1 ">
+                                            <div className="col-4">
                                                 <div className="text-muted">Company</div>
-                                                <div className="m-0">{company.companyName}</div>
-                                            </td>
-                                            <td>
+                                                <div className="m-0 company-info">{company.companyName}</div>
+                                            </div>
+                                            <div className="col-4">
                                                 <div className="text-muted">Email</div>
-                                                <div className="m-0">{company.companyEmail}</div>
-                                            </td>
-                                        </tr>);
-                                    })}
-                            </tbody>
-                        </table>
+                                                <div className="m-0 company-info">{company.companyEmail}</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                );
+                            })}
+
+                        </div>
+                        </div>
 
 
                     </div>
@@ -54,7 +71,7 @@ export default function Step2({ companies, handleOnChange, prevStep, nextStep })
                         <button className="btn btn-dark" onClick={prevStep}>
                             Previous
                         </button>
-                        <button className="btn btn-primary" onClick={nextStep}>
+                        <button className={isCompanySelected ? "btn btn-primary" : "btn btn-secondary"} disabled={!isCompanySelected} onClick={nextStep}>
                             Next
                         </button>
                     </div>

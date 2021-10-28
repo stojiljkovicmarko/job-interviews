@@ -6,6 +6,7 @@ import "./steps.css";
 export default function Step1({ candidates, handleOnChange, nextStep }) {
 
     const [searchText, setSearchText] = useState("");
+    const [isCandidateSelected, setIsCandidateSelected] = useState(false);
 
     const addBorderToSelected = (id) => {
         let selectedCandidate = document.getElementById(id);
@@ -14,6 +15,7 @@ export default function Step1({ candidates, handleOnChange, nextStep }) {
             div.classList.remove("borderActive");
         });
         selectedCandidate.classList.add("borderActive");
+        setIsCandidateSelected(true);
     }
 
     return (
@@ -55,7 +57,7 @@ export default function Step1({ candidates, handleOnChange, nextStep }) {
                         </div>
                     </div>
                     <div className="d-flex justify-content-end">
-                        <button className="btn btn-primary" onClick={nextStep}>
+                        <button className={isCandidateSelected ? "btn btn-primary" : "btn btn-secondary"} disabled={!isCandidateSelected} onClick={nextStep}>
                             Next
                         </button>
                     </div>

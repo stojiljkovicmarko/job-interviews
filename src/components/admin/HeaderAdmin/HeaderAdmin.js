@@ -6,11 +6,11 @@ export default function HeaderAdmin() {
         <header className="mb-3">
             <div className="navbar-fixed container p-0">
                 <nav className="navbar navbar-light ">
-                    <div className="nav-wrapper container-fluid d-flex d-sm-column justify-content-between">
-                        <div className="text-center">
+                    <div className="nav-wrapper container d-flex d-sm-column justify-content-between">
+                        <div className="col-sm-12 col-lg-6 text-center d-flex justify-content-center">
                             <h1>Reports administration </h1>
                         </div>
-                        <div className="justify-content-center">
+                        <div className="col-sm-12 col-lg-6 d-flex justify-content-center">
                             <Link to="/home">
                                 <div className="btn btn-outline-secondary btn-header mx-2">
                                     Candidates

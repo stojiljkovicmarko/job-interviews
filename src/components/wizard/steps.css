@@ -27,14 +27,11 @@
     cursor: pointer;
 }
 
-.company-table {
-    font-size: 1.2rem;
+.row-wrapper {
+    padding: 10px;
 }
 
-.company-table:hover {
+.company:hover {
     cursor: pointer;
-}
-
-.company-row td {
-    padding: 0.6rem;
+    border: 1px solid black;
 }
