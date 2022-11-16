@@ -72,5 +72,5 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/t
 
 caption1 | caption2
 :-: | :-:
-<video src='https://user-images.githubusercontent.com/80163501/202125392-85b9009f-de9e-4c55-85c9-5bd34bc3e1eb.mov' width=300/> | <video src='https://user-images.githubusercontent.com/80163501/202125392-85b9009f-de9e-4c55-85c9-5bd34bc3e1eb.mov' width=100/>
+<video src='https://user-images.githubusercontent.com/80163501/202125392-85b9009f-de9e-4c55-85c9-5bd34bc3e1eb.mov' width="300"/> | <video src='https://user-images.githubusercontent.com/80163501/202125392-85b9009f-de9e-4c55-85c9-5bd34bc3e1eb.mov' width="100"/>
 
